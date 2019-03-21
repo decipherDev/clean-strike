@@ -11,8 +11,13 @@ public enum Operation {
 	, NONE(6, 0, 0)
 	;
 	
+	//action performed by the player
 	private Integer option;
+	
+	//points scored
 	private Integer points;
+	
+	//coins pocketed or removed from the board
 	private Integer coinRemoved;
 	
 	private Operation(Integer option, Integer points, Integer coinRemoved) {
@@ -21,12 +26,17 @@ public enum Operation {
 		this.coinRemoved = coinRemoved;
 	}
 	
+	/*
+	 * @param operation - action performed by the user
+	 * @return Operation constant which gives score and coin to be removed from
+	 * the board 
+	 */
 	public static Operation getOperationByOperationPerformed(int operation) {
 		return Arrays.asList(Operation.values())
 				     .stream()
 					 .filter(choice -> choice.option == operation)
 					 .findFirst()
-					 .get();
+					 .orElse(Operation.NONE);
 	}
 
 	public Integer getPoints() {

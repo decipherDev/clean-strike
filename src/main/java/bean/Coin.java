@@ -1,4 +1,4 @@
-package core;
+package bean;
 
 public class Coin {
 	private Integer redCoin;

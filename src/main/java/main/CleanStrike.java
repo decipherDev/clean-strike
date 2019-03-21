@@ -1,9 +1,11 @@
 package main;
 
-import core.Player;
+import bean.Player;
 
 public interface CleanStrike {
-	public Player[] playCleanStrike(Integer[] inputs);
+	public String playCleanStrike(Integer[] inputs);
 
 	public Player[] createPlayers();
+
+	public int teamSize();
 }
